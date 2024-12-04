@@ -1,0 +1,4 @@
+argostranslate
+tqdm
+argparse
+random
