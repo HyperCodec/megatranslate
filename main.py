@@ -13,7 +13,7 @@ def cli():
 
     parser.add_argument("-t", "--text", required=False, help="The text to megatranslate.")
     parser.add_argument("-p", "--text-path", required=False, help="The path to a file containing the text to megatranslate.")
-    parser.add_argument("-c", "--count", default=25, help="The number of times to translate the text")
+    parser.add_argument("-c", "--count", default=5, help="The number of times to translate the text")
     parser.add_argument("-s", "--seed", required=False, help="A specific seed to use for generation.")
     parser.add_argument("-n", "--no-pkg-install", action="store_true", help="Skip the translation package installation step")
     parser.add_argument("-r", "--root-lang", default="en", help="The language of the provided text")
