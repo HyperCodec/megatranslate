@@ -1,0 +1,1 @@
+pyinstaller --onefile main.py packages.py megatranslate.py -n megatranslate

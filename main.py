@@ -13,7 +13,7 @@ def cli():
 
     parser.add_argument("-t", "--text", required=False, help="The text to megatranslate.")
     parser.add_argument("-p", "--text-path", required=False, help="The path to a file containing the text to megatranslate.")
-    parser.add_argument("-c", "--count", default=100, help="The number of times to translate the text")
+    parser.add_argument("-c", "--count", default=25, help="The number of times to translate the text")
     parser.add_argument("-s", "--seed", required=False, help="A specific seed to use for generation.")
     parser.add_argument("-n", "--no-pkg-install", action="store_true", help="Skip the translation package installation step")
     parser.add_argument("-r", "--root-lang", default="en", help="The language of the provided text")
@@ -36,7 +36,7 @@ def main():
             text = f.read()
 
     if args.seed is not None:
-        random.seed(args.seed)
+        random.seed(int(args.seed))
 
     if args.update_existing_pkgs:
         packages.update_packages()
@@ -47,7 +47,7 @@ def main():
     langs = translate.get_installed_languages()
 
     print("Megatranslating")
-    output = megatranslate(text, args.root_lang, args.count, langs)
+    output = megatranslate(text, args.root_lang, int(args.count), langs)
 
     if args.output_path is not None:
         with open(args.output_path, "w+") as f:

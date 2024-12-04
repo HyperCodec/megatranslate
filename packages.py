@@ -21,11 +21,11 @@ def update_packages():
         package.update()
 
 def available_uninstalled():
-    already_installed = argostranslate.package.get_installed_packages()
+    already_installed = set(map(lambda pkg: (pkg.from_code, pkg.to_code), argostranslate.package.get_installed_packages()))
     available_packages = argostranslate.package.get_available_packages()
 
     output = []
     for pkg in available_packages:
-        if pkg not in already_installed:
+        if (pkg.from_code, pkg.to_code) not in already_installed:
             output.append(pkg)
     return output
