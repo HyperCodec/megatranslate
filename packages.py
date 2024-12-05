@@ -9,7 +9,7 @@ def install_packages():
         # no new packages to add
         return
 
-    print("Installing translation packages")
+    print("Installing translation packages. If this keep happening with every run, add the `-n` flag.")
     for pkg in tqdm(pkgs):
             argostranslate.package.install_from_path(pkg.download())
 
